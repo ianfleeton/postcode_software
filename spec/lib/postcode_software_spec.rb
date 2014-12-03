@@ -11,12 +11,10 @@ RSpec.describe PostcodeSoftware do
         it { is_expected.to be_kind_of(PostcodeSoftware::Response) }
 
         it 'has error_number of 0' do
-          skip
           expect(subject.error_number).to eq 0
         end
 
         it 'has empty error message' do
-          skip
           expect(subject.error_message).to eq ''
         end
       end
@@ -26,12 +24,10 @@ RSpec.describe PostcodeSoftware do
         it { is_expected.to be_kind_of(PostcodeSoftware::Response) }
 
         it 'has error_number of 5' do
-          skip
           expect(subject.error_number).to eq 5
         end
 
         it 'has error_message set' do
-          skip
           expect(subject.error_message).to eq 'Test accounts can only be used with LS18 postcodes'
         end
       end

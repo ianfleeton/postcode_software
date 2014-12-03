@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Address xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://postcodesoftware.co.uk/">
+  <Address1>South Row</Address1>
+  <Address2>Horsforth</Address2>
+  <Town>Leeds</Town>
+  <County>West Yorkshire</County>
+  <Postcode>LS18 4AA</Postcode>
+  <PremiseData>||1;||15;</PremiseData>
+  <ErrorNumber>0</ErrorNumber>
+  <ErrorMessage />
+</Address>

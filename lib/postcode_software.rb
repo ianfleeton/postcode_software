@@ -1,4 +1,5 @@
 require 'postcode_software/response'
+require 'open-uri'
 
 # Provides postcode look up service for postcodesoftware.net
 #
@@ -14,10 +15,13 @@ module PostcodeSoftware
     attr_accessor :password
   end
 
+  @username = 'test'
+  @password = 'test'
+
   # Looks up the given +postcode+ and returns found addresses in a
   # <tt>PostcodeSoftware::Response</tt>.
   def self.look_up(postcode)
-    Response.new('')
+    Response.new(open(sdk_url(postcode)))
   end
 
   # Returns the web SDK URL for the given postcode.
