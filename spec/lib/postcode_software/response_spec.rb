@@ -26,5 +26,41 @@ module PostcodeSoftware
 
       it { is_expected.to eq 'Test accounts can only be used with LS18 postcodes' }
     end
+
+    context 'with LS18 4AA' do
+      let(:xml) { xml_fixture('LS184AA.xml') }
+
+      it 'has address_1 set' do
+        expect(response.address_1).to eq 'South Row'
+      end
+
+      it 'has address_2 set' do
+        expect(response.address_2).to eq 'Horsforth'
+      end
+
+      it 'has address_3 unset' do
+        expect(response.address_3).to be_nil
+      end
+
+      it 'has address_4 unset' do
+        expect(response.address_4).to be_nil
+      end
+
+      it 'has town set' do
+        expect(response.town).to eq 'Leeds'
+      end
+
+      it 'has county set' do
+        expect(response.county).to eq 'West Yorkshire'
+      end
+    end
+
+    private
+
+    def xml_fixture(filename)
+      File.open(
+        File.join [File.dirname(__FILE__), '..', '..', 'support', 'fixtures', filename]
+      )
+    end
   end
 end
