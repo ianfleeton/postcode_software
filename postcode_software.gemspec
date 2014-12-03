@@ -12,5 +12,6 @@ Gem::Specification.new do |s|
   s.license       = 'MIT'
 
   s.add_development_dependency 'rspec', '~> 3.1'
+  s.add_development_dependency 'sinatra', '~> 1.4.5'
   s.add_development_dependency 'webmock', '~> 1.20'
 end
