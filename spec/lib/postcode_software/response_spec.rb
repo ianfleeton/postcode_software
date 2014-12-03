@@ -53,6 +53,10 @@ module PostcodeSoftware
       it 'has county set' do
         expect(response.county).to eq 'West Yorkshire'
       end
+
+      it 'has postcode set' do
+        expect(response.postcode).to eq 'LS18 4AA'
+      end
     end
 
     private

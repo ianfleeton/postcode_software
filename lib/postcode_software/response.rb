@@ -53,6 +53,11 @@ module PostcodeSoftware
       try_content '//Address//County'
     end
 
+    # Postcode that has been searched.
+    def postcode
+      try_content '//Address//Postcode'
+    end
+
     private
 
     def try_content(path)
