@@ -50,4 +50,14 @@ RSpec.describe PostcodeSoftware do
       end
     end
   end
+
+  describe '.sdk_url' do
+    it 'returns the URL containing auth and postcode params' do
+      PostcodeSoftware.username = 'u'
+      PostcodeSoftware.password = 'p'
+      postcode = 'LS18 4AA'
+      expected = 'http://ws1.postcodesoftware.co.uk/lookup.asmx/getAddress?account=u&password=p&postcode=LS18+4AA'
+      expect(PostcodeSoftware.sdk_url(postcode)).to eq expected
+    end
+  end
 end

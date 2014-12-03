@@ -19,4 +19,16 @@ module PostcodeSoftware
   def self.look_up(postcode)
     Response.new('')
   end
+
+  # Returns the web SDK URL for the given postcode.
+  def self.sdk_url(postcode)
+    [
+      'http://ws1.postcodesoftware.co.uk/lookup.asmx/getAddress?account=',
+      CGI::escape(username),
+      '&password=',
+      CGI::escape(password),
+      '&postcode=',
+      CGI.escape(postcode)
+    ].join
+  end
 end
