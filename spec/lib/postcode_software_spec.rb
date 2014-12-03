@@ -3,9 +3,26 @@ require 'postcode_software'
 
 RSpec.describe PostcodeSoftware do
   describe '.look_up' do
+    subject { PostcodeSoftware.look_up(postcode) }
+
     context 'with username and password unset' do
-      it 'works for example LS18 postcodes' do
-        expect(PostcodeSoftware.look_up('LS18 4AA')).to be_kind_of(PostcodeSoftware::Response)
+      context 'using example LS18 postcodes' do
+        let(:postcode) { 'LS18 4AA' }
+
+        it { is_expected.to be_kind_of(PostcodeSoftware::Response) }
+      end
+    end
+
+    context 'with valid username and password' do
+      before do
+        PostcodeSoftware.username = 'valid'
+        PostcodeSoftware.password = 'valid'
+      end
+
+      context 'using example LS18 postcodes' do
+        let(:postcode) { 'LS18 4AA' }
+
+        it { is_expected.to be_kind_of(PostcodeSoftware::Response) }
       end
     end
   end
