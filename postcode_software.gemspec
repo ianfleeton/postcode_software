@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Ruby wrapper for PostcodeSoftware's web SDK, see http://www.postcodesoftware.net/sdk_web.htm"
   s.authors     = ["Ian Fleeton"]
   s.email       = 'ianfleeton@gmail.com'
-  s.files       = ['lib/postcode_software.rb']
+  s.files       = Dir['{lib,spec}/**/*', 'LICENSE', 'Rakefile', 'README.rdoc'] & `git ls-files -z`.split("\0")
   s.homepage    =
   'http://rubygems.org/gems/postcode_software'
   s.license       = 'MIT'
