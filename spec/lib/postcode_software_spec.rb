@@ -5,7 +5,7 @@ RSpec.describe PostcodeSoftware do
   describe '.look_up' do
     subject { PostcodeSoftware.look_up(postcode) }
 
-    context 'with username and password unset' do
+    context 'with account and password unset' do
       context 'using example LS18 postcodes' do
         let(:postcode) { 'LS18 4AA' }
         it { is_expected.to be_kind_of(PostcodeSoftware::Response) }
@@ -33,9 +33,9 @@ RSpec.describe PostcodeSoftware do
       end
     end
 
-    context 'with valid username and password' do
+    context 'with valid account and password' do
       before do
-        PostcodeSoftware.username = 'valid'
+        PostcodeSoftware.account = 'valid'
         PostcodeSoftware.password = 'valid'
       end
 
@@ -46,9 +46,9 @@ RSpec.describe PostcodeSoftware do
       end
     end
 
-    context 'with invalid username or password' do
+    context 'with invalid account or password' do
       before do
-        PostcodeSoftware.username = 'invalid'
+        PostcodeSoftware.account = 'invalid'
       end
 
       let(:postcode) { 'LS18 4AA' }
@@ -65,7 +65,7 @@ RSpec.describe PostcodeSoftware do
 
   describe '.sdk_url' do
     it 'returns the URL containing auth and postcode params' do
-      PostcodeSoftware.username = 'u'
+      PostcodeSoftware.account = 'u'
       PostcodeSoftware.password = 'p'
       postcode = 'LS18 4AA'
       expected = 'http://ws1.postcodesoftware.co.uk/lookup.asmx/getAddress?account=u&password=p&postcode=LS18+4AA'

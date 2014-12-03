@@ -4,19 +4,19 @@ require 'open-uri'
 
 # Provides postcode look up service for postcodesoftware.net
 #
-#   PostcodeSoftware.username = 'myusername'
+#   PostcodeSoftware.account  = 'myaccount'
 #   PostcodeSoftware.password = 'mypassword'
 #   response = PostcodeSoftware.look_up('LS18 4AB')
 module PostcodeSoftware
 
   class << self
-    # Username for the service
-    attr_accessor :username
+    # Account for the service
+    attr_accessor :account
     # Password for the service
     attr_accessor :password
   end
 
-  @username = 'test'
+  @account  = 'test'
   @password = 'test'
 
   # Looks up the given +postcode+ and returns found addresses in a
@@ -29,7 +29,7 @@ module PostcodeSoftware
   def self.sdk_url(postcode)
     [
       'http://ws1.postcodesoftware.co.uk/lookup.asmx/getAddress?account=',
-      CGI::escape(username),
+      CGI::escape(account),
       '&password=',
       CGI::escape(password),
       '&postcode=',

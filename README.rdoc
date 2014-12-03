@@ -9,7 +9,7 @@ gem install postcode_software
 === Usage
 
   require 'postcode_software'
-  PostcodeSoftware.username = 'myusername'
+  PostcodeSoftware.account  = 'myaccount'
   PostcodeSoftware.password = 'mypassword'
   response = PostcodeSoftware.look_up('LS18 4AB')
   response.address_1 # => "North Broadgate Lane"
