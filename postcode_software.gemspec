@@ -11,6 +11,8 @@ Gem::Specification.new do |s|
   'http://rubygems.org/gems/postcode_software'
   s.license       = 'MIT'
 
+  s.add_dependency 'nokogiri', '~> 1.6'
+
   s.add_development_dependency 'rspec', '~> 3.1'
   s.add_development_dependency 'sinatra', '~> 1.4.5'
   s.add_development_dependency 'webmock', '~> 1.20'
