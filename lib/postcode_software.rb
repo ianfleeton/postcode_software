@@ -1,4 +1,5 @@
 require 'postcode_software/response'
+require 'cgi'
 require 'open-uri'
 
 # Provides postcode look up service for postcodesoftware.net
