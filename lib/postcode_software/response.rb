@@ -1,4 +1,4 @@
 module PostcodeSoftware
-  class Result
+  class Response
   end
 end
