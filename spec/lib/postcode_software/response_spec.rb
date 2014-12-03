@@ -27,6 +27,14 @@ module PostcodeSoftware
       it { is_expected.to eq 'Test accounts can only be used with LS18 postcodes' }
     end
 
+    context 'without premise level data' do
+      let(:xml) { xml_fixture('LS184AF-no-premise.xml') }
+
+      it 'has no premises' do
+        expect(subject.premises).to eq []
+      end
+    end
+
     context 'with LS18 4AA' do
       let(:xml) { xml_fixture('LS184AA.xml') }
 
@@ -56,6 +64,24 @@ module PostcodeSoftware
 
       it 'has postcode set' do
         expect(response.postcode).to eq 'LS18 4AA'
+      end
+
+      describe 'premises' do
+        subject { response.premises }
+
+        it { expect(subject.length).to eq 4 }
+
+        it 'sets organisation' do
+          expect(subject[1][:organisation]).to eq 'Organisation'
+        end
+
+        it 'sets building details' do
+          expect(subject[2][:building_details]).to eq 'Building Details'
+        end
+
+        it 'sets number' do
+          expect(subject[0][:number]).to eq '1'
+        end
       end
     end
 

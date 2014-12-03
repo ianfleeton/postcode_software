@@ -58,6 +58,30 @@ module PostcodeSoftware
       try_content '//Address//Postcode'
     end
 
+    # Returns premise data for this postcode.
+    #
+    #   [
+    #     {
+    #       :organisation=>'Organisation',
+    #       :building_details=>'Bulding Details',
+    #       :number=>'123'
+    #     },
+    #     ...
+    #   ]
+    def premises
+      if @doc.at_xpath('//Address//PremiseData')
+        str = @doc.at_xpath('//Address//PremiseData').content
+        str
+          .split(';')
+          .map do |x|
+            y = x.split('|', -1)
+            {organisation:y[0], building_details:y[1], number:y[2]}
+          end
+      else
+        []
+      end
+    end
+
     private
 
     def try_content(path)
