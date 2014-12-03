@@ -45,6 +45,22 @@ RSpec.describe PostcodeSoftware do
         it { is_expected.to be_kind_of(PostcodeSoftware::Response) }
       end
     end
+
+    context 'with invalid username or password' do
+      before do
+        PostcodeSoftware.username = 'invalid'
+      end
+
+      let(:postcode) { 'LS18 4AA' }
+
+      it 'has error_number of 1' do
+        expect(subject.error_number).to eq 1
+      end
+
+      it 'has error_message set' do
+        expect(subject.error_message).to eq 'Account not active'
+      end
+    end
   end
 
   describe '.sdk_url' do

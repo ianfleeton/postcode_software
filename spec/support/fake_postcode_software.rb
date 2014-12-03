@@ -26,6 +26,7 @@ class FakePostcodeSoftware < Sinatra::Base
   end
 
   def handle_invalid
+    xml_response('account-not-active.xml')
   end
 
   def xml_response(file_name)
