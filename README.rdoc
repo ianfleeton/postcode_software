@@ -2,6 +2,8 @@
 
 {<img src="https://badge.fury.io/rb/postcode_software.svg" alt="Gem Version" />}[http://badge.fury.io/rb/postcode_software]
 
+{<img src="https://travis-ci.org/ianfleeton/postcode_software.svg" />}[https://travis-ci.org/ianfleeton/postcode_software]
+
 Unofficial Ruby wrapper for using the web SDK provided by postcodesoftware.net.
 
 === Installation
