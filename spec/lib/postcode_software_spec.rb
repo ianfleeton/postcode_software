@@ -46,6 +46,19 @@ RSpec.describe PostcodeSoftware do
       end
     end
 
+    context 'with valid numeric account and valid password' do
+      before do
+        PostcodeSoftware.account = 12345
+        PostcodeSoftware.password = 'valid'
+      end
+
+      context 'using example LS18 postcodes' do
+        let(:postcode) { 'LS18 4AA' }
+
+        it { is_expected.to be_kind_of(PostcodeSoftware::Response) }
+      end
+    end
+
     context 'with invalid account or password' do
       before do
         PostcodeSoftware.account = 'invalid'
