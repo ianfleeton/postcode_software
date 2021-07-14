@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'postcode_software'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.summary     = 'Postcode Software'
   s.description = "Ruby wrapper for PostcodeSoftware's web SDK, see https://web.postcodesoftware.com/sdk"
   s.authors     = ["Ian Fleeton"]
