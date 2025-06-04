@@ -1,6 +1,8 @@
 require 'postcode_software/response'
 require 'cgi'
-require 'open-uri'
+require 'net/http'
+require 'uri'
+require 'openssl'
 
 # Provides postcode look up service for postcodesoftware.net
 #
@@ -22,7 +24,16 @@ module PostcodeSoftware
   # Looks up the given +postcode+ and returns found addresses in a
   # <tt>PostcodeSoftware::Response</tt>.
   def self.look_up(postcode)
-    Response.new(URI.open(sdk_url(postcode)))
+    uri = URI.parse(sdk_url(postcode))
+    response = Net::HTTP.start(
+      uri.host,
+      uri.port,
+      use_ssl: true,
+      verify_mode: OpenSSL::SSL::VERIFY_PEER
+    ) do |http|
+      http.get(uri.request_uri)
+    end
+    Response.new(response.body)
   end
 
   # Returns the web SDK URL for the given postcode.
