@@ -81,7 +81,7 @@ RSpec.describe PostcodeSoftware do
       PostcodeSoftware.account = 'u'
       PostcodeSoftware.password = 'p'
       postcode = 'LS18 4AA'
-      expected = 'http://ws1.postcodesoftware.co.uk/lookup.asmx/getAddress?account=u&password=p&postcode=LS18+4AA'
+      expected = 'https://ws1.postcodesoftware.co.uk/lookup.asmx/getAddress?account=u&password=p&postcode=LS18+4AA'
       expect(PostcodeSoftware.sdk_url(postcode)).to eq expected
     end
   end
