@@ -29,9 +29,9 @@ module PostcodeSoftware
   def self.sdk_url(postcode)
     [
       'http://ws1.postcodesoftware.co.uk/lookup.asmx/getAddress?account=',
-      CGI::escape(account.to_s),
+      CGI.escape(account.to_s),
       '&password=',
-      CGI::escape(password),
+      CGI.escape(password),
       '&postcode=',
       CGI.escape(postcode)
     ].join
